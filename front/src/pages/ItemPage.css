@@ -1,0 +1,33 @@
+
+
+.upside{
+    display: flex;
+    margin-left: 100px;
+    margin-top: 50px;
+   flex-direction: row;
+}
+
+.upside img{
+    width: 600px;
+    height: 600px;
+    border: 1px solid black;
+
+}
+
+.stats{
+position: relative;
+display: flex;
+margin-left: auto;
+margin-right: auto;
+flex-direction: row;
+}
+
+
+.stats p{
+    font-size: 30px;
+}
+.itemdescription{
+    margin-left: 30px;
+    margin-top: 10px;
+    font-size: 20px;
+}

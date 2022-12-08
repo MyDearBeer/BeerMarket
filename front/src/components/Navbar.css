@@ -1,0 +1,21 @@
+.navbar{
+    display: flex;
+    background-color: aqua;
+border-bottom: 1px solid black;
+height: 74px;
+}
+
+.admin{
+    display: flex;
+    flex-direction: row;
+}
+
+.navbtns button{
+    position: relative;
+    margin-right: 15px;
+   
+}
+
+.navbtns button:hover{
+    background-color: black;
+}

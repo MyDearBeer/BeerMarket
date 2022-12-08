@@ -1,0 +1,38 @@
+.authbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  
+    
+}
+
+.auth{
+    border: 1px solid rgb(126, 125, 125);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 600px;
+    height: 300px;
+}
+
+
+.forma input{
+  position: relative;
+    margin-top: 15px;
+    width: 500px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.forma button{
+    margin-top: 15px;
+}
+.forma a{
+    padding-top: 15px;
+    font-size: 20px;
+}
+
+
+

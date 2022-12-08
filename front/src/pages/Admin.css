@@ -1,0 +1,34 @@
+.postbuttons{
+    width: 1000px;
+margin-left: auto;
+margin-right: auto;
+
+}
+.postbutton{
+    width: 1000px;
+margin-top: 10px;
+}
+
+.admin{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.addbtn,.closeBtn{
+    margin-top: 15px;
+
+    height: 70px;
+    font-size: 35px;
+}
+
+.closeBtn{
+    background-color: red;
+    color: black;
+}
+
+
+.closeBtn:hover{
+    background-color: white;
+}
+

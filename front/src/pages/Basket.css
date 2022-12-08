@@ -1,0 +1,30 @@
+.basket{
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.basket img{
+    width: 100px;
+    height: 100px;
+
+}
+
+.basketitem{
+   
+padding:10px;
+
+
+border: 1px solid black;
+}
+
+.basketleft{
+
+    width: 200px;
+    float: left;
+   border: 1px solid black;
+   
+}
+
+.basketright{
+float: right;
+}

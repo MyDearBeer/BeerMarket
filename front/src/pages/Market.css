@@ -1,0 +1,71 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    float: left;
+    height: 100%;
+    margin-left: 10px;
+}
+
+.bar{
+    display: flex;
+    flex-direction: column;
+    float: left;
+}
+
+.sidebar a{
+
+    border: 1px solid black;
+    width: 200px;
+    font-size: 25px;
+    text-align: center;
+    background-color: white;
+    font-size: 20px;
+min-height: 50px;
+
+   cursor: pointer;
+}
+
+
+.itemlist{
+    display: flex;
+    margin-left: 250px;
+    margin-top: 10px;
+   
+    flex-direction: row;
+    align-items: center;
+   
+    flex-wrap: wrap;
+}
+
+.itemlist img{
+    margin-top: 20px;
+    width: 100px;
+    height: 150px;
+}
+
+.itemlist div{
+   display: flex;
+    border: 1px solid gray;
+   height: 300px;
+   width: 300px;
+margin-bottom: 30px;
+margin-left: 20px;
+align-items: center;
+    justify-content:center;
+    flex-direction: column;
+font-size: 20px;
+text-align: center;
+}
+
+.pages{
+    margin-left: 270px;
+}
+
+.pages button{
+    margin-right: 20px;
+    min-width: 40px;
+}
+
+.pages button:active{
+    background-color: black;
+}
