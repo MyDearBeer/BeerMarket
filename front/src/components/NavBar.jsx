@@ -16,7 +16,7 @@ const NavBar =observer (() => {
     return (
        
       <div className='navbar'>
-<h1 style={{cursor:"pointer"}} onClick={()=>navigate(SHOPROUTE)}>BeerMarket</h1>
+<h1 style={{cursor:"pointer", paddingLeft:"10px"}} onClick={()=>navigate(SHOPROUTE)}>BeerMarket</h1>
 <div className='navbtns'>
 {user.isAuth ?
              <div className="admin">
@@ -36,23 +36,7 @@ const NavBar =observer (() => {
 </div>
       </div>
 
-        // <Navbar bg="primary" variant="dark">
        
-        //   <NavLink style={{color:"white"}} href={SHOPROUTE}>BeerMarket</NavLink>
-    
-        //     {user.isAuth ?
-        //      <Nav className="ml-auto">
-        //    <Button  variant="outline-dark">Увійти</Button>
-        //    <Button variant="outline-dark" className="ml-4">Admin</Button>
-        //    </Nav>
-        // : 
-        // <Nav className="ml-auto">
-        // <Button className="d-flex" variant="outline-dark" onClick={()=>user.setisAuth(true)}>Авторизація</Button>
-        
-        // </Nav>}
-          
-      
-      // </Navbar>
       );
 })
  
