@@ -9,14 +9,14 @@ const AppRouter = observer(() => {
     const{user}=useContext(Context)
  console.log(user)
     return (
-        <div>
+        <div className="block" style={{minHeight:"calc(100vh - 100px - 100px)"}}>
            <Routes>
-            {user.isAuth==true?  authRoutes.map(({path,element})=>
-            <Route key={path} path={path} element={element} exact/>)
-           
-              :
-             
-              pubRoutes.map(({path,element})=>
+            {user.isAuth==true && user.User.role=='User' && authRoutes.map(({path,element})=>
+            <Route key={path} path={path} element={element} exact/>)}
+               {user.isAuth==true && user.User.role=='Admin' && authRoutes.map(({path,element})=>
+                   <Route key={path} path={path} element={element} exact/>)}
+
+               {!user.isAuth && pubRoutes.map(({path,element})=>
             <Route key={path} path={path} element={element} exact/>)}
             </Routes> 
         </div>

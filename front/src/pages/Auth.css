@@ -8,31 +8,50 @@
 }
 
 .auth{
-    border: 1px solid rgb(126, 125, 125);
+    border: 5px solid rgb(126, 125, 125);
+
+    background-color: aqua;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 600px;
-    height: 300px;
+    width: 38%;
+    height: 40%;
 }
 
+.forma{
+    width: 85%;
+}
 
 .forma input{
   position: relative;
     margin-top: 15px;
-    width: 500px;
-    height: 30px;
+    width: 100%;
+    height: 40px;
     font-size: 20px;
 }
 
 .forma button{
-    margin-top: 15px;
+    margin-top: 25px;
 }
 .forma a{
-    padding-top: 15px;
+    padding-top: 30px;
     font-size: 20px;
 }
 
+.forma a:hover{
+    color: black;
+}
+@media(max-width: 774px) {
+.auth{
+    width: 50%;
+}
+}
 
+.notFullInfo{
+    font-size: 20px;
+    height: 17%;
+    padding-left: 0px;
+    text-align: center;
+}
 

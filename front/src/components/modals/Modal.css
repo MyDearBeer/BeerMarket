@@ -1,28 +1,32 @@
 .myModal{
-    position: fixed;
+    position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
-    display: none;
+
     background: rgba(0, 0, 0, 0.4);
     display: flex;
     justify-content: center;
     align-items: center;
-opacity: 0;
-transition: 0.5s;
-pointer-events: none;
-flex-direction: column;
+    opacity: 0;
+    transition: 0.5s;
+    pointer-events: none;
+    max-height: 100%;
 
 }
+
 
 .myModal.active{
- pointer-events: all;
-opacity: 1;
-display: flex;
-justify-content: center;
-align-items: center;
+    pointer-events: all;
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
+
+
 
 input,.optionsList,.description{
     width: 100%;
@@ -34,19 +38,37 @@ input,.optionsList,.description{
 }
 
 .myModalContent{
+overflow-y: auto;
+    scrollbar-width: auto;
+    scrollbar-track-color: aqua;
     padding: 20px;
     background: gray;
+    border:3px solid black;
     border-radius: 16px;
     min-width: 250px;
     width: 75vw;
+height: auto;
     transform: scale(0.5);
     transition: 0.4s all;
-  
+margin-left: 20px;
+}
+.myModalContent::-webkit-scrollbar {
+    width: 22px;               /* ширина всей полосы прокрутки */
+
+}
+.myModalContent::-webkit-scrollbar-track {
+    background: black;        /* цвет зоны отслеживания */
+}
+
+.myModalContent::-webkit-scrollbar-thumb {
+    background-color: blue;    /* цвет бегунка */
+    border-radius: 10px;       /* округлось бегунка */
+    border: 3px solid #e4e8de;  /* отступ вокруг бегунка */
 }
 
 .myModalContent.active{
     transform: scale(1);
-   
+
 }
 
 .optionsList option{
@@ -60,10 +82,11 @@ input,.optionsList,.description{
 }
 
 .description{
-width: 90%;
-font-size: larger;
-height: 500px;
-margin-left: 30px;
+    width: 95%;
+    font-size: larger;
+    height: 500px;
+    margin-left: 30px;
+
 }
 
 .notFullInfo{
@@ -73,4 +96,8 @@ margin-left: 30px;
     background-color: rgb(122, 20, 20);
     color: blanchedalmond;
     padding-left: 10px;
+    margin-top: 20px;
+}
+.addbtn{
+
 }

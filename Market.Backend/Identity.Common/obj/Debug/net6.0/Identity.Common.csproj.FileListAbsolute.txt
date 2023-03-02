@@ -1,0 +1,12 @@
+D:\gachi\market\Market.Backend\Identity.Common\bin\Debug\net6.0\Identity.Common.deps.json
+D:\gachi\market\Market.Backend\Identity.Common\bin\Debug\net6.0\Identity.Common.dll
+D:\gachi\market\Market.Backend\Identity.Common\bin\Debug\net6.0\Identity.Common.pdb
+D:\gachi\market\Market.Backend\Identity.Common\obj\Debug\net6.0\Identity.Common.csproj.AssemblyReference.cache
+D:\gachi\market\Market.Backend\Identity.Common\obj\Debug\net6.0\Identity.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\gachi\market\Market.Backend\Identity.Common\obj\Debug\net6.0\Identity.Common.AssemblyInfoInputs.cache
+D:\gachi\market\Market.Backend\Identity.Common\obj\Debug\net6.0\Identity.Common.AssemblyInfo.cs
+D:\gachi\market\Market.Backend\Identity.Common\obj\Debug\net6.0\Identity.Common.csproj.CoreCompileInputs.cache
+D:\gachi\market\Market.Backend\Identity.Common\obj\Debug\net6.0\Identity.Common.dll
+D:\gachi\market\Market.Backend\Identity.Common\obj\Debug\net6.0\refint\Identity.Common.dll
+D:\gachi\market\Market.Backend\Identity.Common\obj\Debug\net6.0\Identity.Common.pdb
+D:\gachi\market\Market.Backend\Identity.Common\obj\Debug\net6.0\ref\Identity.Common.dll

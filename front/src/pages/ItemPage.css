@@ -2,16 +2,16 @@
 
 .upside{
     display: flex;
-    margin-left: 100px;
+    margin-left: 30px;
     margin-top: 50px;
    flex-direction: row;
 }
 
 .upside img{
-    width: 600px;
-    height: 600px;
+    width: 40%;
+    height: 700px;
     border: 1px solid black;
-
+flex:0 0 auto;
 }
 
 .stats{
@@ -19,15 +19,39 @@ position: relative;
 display: flex;
 margin-left: auto;
 margin-right: auto;
-flex-direction: row;
+justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 10px;
 }
 
+.infodiv{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin-bottom: 60px;
+    margin-top: 60px;
+}
 
-.stats p{
+.stats p,h{
     font-size: 30px;
 }
+.stats button{
+
+
+}
 .itemdescription{
-    margin-left: 30px;
+
     margin-top: 10px;
     font-size: 20px;
+}
+@media (max-width: 1025px) {
+    .upside{
+flex-direction: column;
+
+        align-items: center;
+    }
+    .upside img{
+        height: 30%;
+    }
 }

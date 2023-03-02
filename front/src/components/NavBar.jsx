@@ -23,9 +23,10 @@ const NavBar =observer (() => {
            <button onClick={()=>{
             navigate(REGROUTE)
             user.setisAuth(false)}} >Вийти</button>
-           <button onClick={()=>{navigate(ADMINROUTE)
-          console.log(user)}} >Admin</button>
-           <button onClick={()=>navigate(BASKETROUTE)} >Кошик</button>
+                 {user.User.role=='Admin' && <button onClick={()=>{navigate(ADMINROUTE)
+          console.log(user)}} >Admin</button>}
+           <button onClick={()=>{navigate(BASKETROUTE)
+               console.log(user.User.role)}} >Кошик</button>
            </div >
         : 
         <div >

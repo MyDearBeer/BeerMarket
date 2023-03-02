@@ -8,25 +8,33 @@ import { variables } from '../utils/consts';
 
 const SideBar = observer( ()=> {
     const {product}=useContext(Context)
-   
+   console.log(product)
     useEffect(()=>{
-        fetchTypes().then(data=>product.setType(data))
+        fetchTypes().then(data=>product.setType(data.types))
         product.setSelectedType({})
     },[])
     useEffect(()=>{
-        fetchFactories().then(data=>product.setFactory(data))
+        fetchFactories().then(data=>product.setFactory(data.factories))
     },[])
     return (
         <div className='bar'>
         <div className='sidebar'>
             <h2>Типи товарів</h2>
 {product.type.map(type=>
-    <a style={type.id===product.selectedType.id ? {backgroundColor:"green"}: {backgroundColor:"white"}} onClick={()=>{type.id===product.selectedType.id ? product.setSelectedType({}): product.setSelectedType(type)}} key={type.id}>{type.name}</a> )}
+    <a style={type.id===product.selectedType.id
+        ? {backgroundColor:"white"}: {backgroundColor:""}}
+       onClick={()=>{type.id===product.selectedType.id
+           ? product.setSelectedType({}): product.setSelectedType(type)}}
+       key={type.id}>{type.name}</a> )}
           </div>
             <div style={{marginTop:"20px"}} className='sidebar'>
             <h2>Фірми</h2>
 {product.factory.map(factory=>
-    <a style={factory.id===product.selectedFactory.id ? {backgroundColor:"green"}: {backgroundColor:"white"}} onClick={()=>product.setSelectedFactory(factory)} key={factory.id}>{factory.name}</a> )}
+    <a style={factory.id===product.selectedFactory.id
+        ? {backgroundColor:"white"}: {backgroundColor:""}}
+       onClick={()=>factory.id===product.selectedFactory.id
+           ? product.setSelectedFactory({}):product.setSelectedFactory(factory)}
+       key={factory.id}>{factory.name}</a> )}
         </div>
         </div>
       );

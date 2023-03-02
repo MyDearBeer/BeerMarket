@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {createRef, useEffect} from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { Context } from '../..';
 import { createItems, postImage } from '../../http/ItemAPI';
+import Warning from "../Warning";
 
 
 const CreateItem = ({modalItemVisible,setActive}) => {
@@ -20,6 +21,7 @@ const CreateItem = ({modalItemVisible,setActive}) => {
 
 
 
+
   const addItem=(e)=>    {
     console.log(product.selectedFactory)
 
@@ -30,8 +32,9 @@ createItems({name:name,
   factoryId:factoryID,
   typeId:typeID,
   description:desc,
-  itemInfo:info})
-.then(data=>setActive(false)) 
+  info:info})
+.then(data=>{setActive(false)
+    document.body.style.overflowY = "scroll"})
 
 if(img){
 const formData = new FormData()
@@ -60,12 +63,12 @@ setImgName(e.target.files[0].name)
         
 
 
-          <form encType="multipart/form-data">
+          <form encType="multipart/form-data" style={{height:"1000px"}}>
              <h1>Введіть назву виробу <span style={{color:"red"}}>*</span></h1>
-             <input type="text" value={name} style={name==""|| name==null? {border:"3px solid red"}: {border:"blue"}} onChange={(e)=>setName(e.target.value)}/>
+             <input type="text" value={name} style={name==""|| name==null? {border:"3px solid red"}: {borderColor:"blue"}} onChange={(e)=>setName(e.target.value)}/>
            
             <h1>Виберіть тип виробу<span style={{color:"red"}}>*</span></h1>
-            <select className='optionsList' value={typeID} style={typeID==null? {border:"5px solid red"}: {border:"blue"}} onChange={(e)=>{setTypeId(e.target.value)
+            <select className='optionsList' value={typeID} style={typeID==null? {border:"5px solid red"}: {borderColor:"blue"}} onChange={(e)=>{setTypeId(e.target.value)
             console.log((e.target.value))}}>
               {product.type.map(type=>
                     <option key={type.id} value={type.id} 
@@ -74,7 +77,7 @@ setImgName(e.target.files[0].name)
               )}
                 </select>
                 <h1>Введіть назву виробника<span style={{color:"red"}}>*</span></h1>
-            <select className='optionsList' style={factoryID==null? {border:"5px solid red"}: {border:"blue"}} onChange={(e)=>{setFactoryId(e.target.value)
+            <select className='optionsList' style={factoryID==null? {border:"5px solid red"}: {borderColor:"blue"}} onChange={(e)=>{setFactoryId(e.target.value)
             console.log(e.target.value)}}>
             {product.factory.map(factory=>
                     <option key={factory.id} value={factory.id}>{factory.name}</option>
@@ -95,9 +98,9 @@ setImgName(e.target.files[0].name)
            console.log(info.number)}}>Додати характеристику</button><br/>
             {info.map(info=>
             <div key={info.number}>
-                  <input style={{width:"40vw", margin:"20px"}} type="text" placeholder='Характеристика' value={info.title} onChange={(e)=>changeInfo('title',e.target.value,info.number)}/>
-                  <input style={{width:"25vw"}} type="text" placeholder='Значення' value={info.description} onChange={(e)=>changeInfo('value',e.target.value,info.number)}/>
-                  <button className='closeBtn' onClick={(e)=>{
+                  <input style={{width:"calc(45vw - 20px)"}} type="text" placeholder='Характеристика' value={info.title} onChange={(e)=>changeInfo('title',e.target.value,info.number)}/>
+                  <input style={{width:"calc(75vw - 45vw - 70px)",marginLeft:"20px"}} type="text" placeholder='Значення' value={info.description} onChange={(e)=>changeInfo('value',e.target.value,info.number)}/>
+                  <button style={{marginBottom:"20px"}} className='closeBtn' onClick={(e)=>{
                     e.preventDefault()
                     removeInfo(info.number)}}>Видалити</button>
             </div>)
@@ -106,12 +109,12 @@ setImgName(e.target.files[0].name)
 
 
           {errDiv ?
-          <div className='notFullInfo'>Треба заповнити усі обов'язкові дані</div>
-         : <div className='notFullInfo'>Для додання предмету заповніть обов'язкові поля,які позначені *</div>}
+              <Warning>Треба заповнити усі обов'язкові дані</Warning>
+         : <Warning>Для додання предмету заповніть обов'язкові поля,які позначені *</Warning>}
          
       
-            <button className='addbtn' onClick={(e)=>{
-              
+            <button style={{marginBottom:"20px"}} className='addbtn' onClick={(e)=>{
+
               if(name&&factoryID&&typeID){
               // product.item.map(i=>{
               //   if(name==i.name){

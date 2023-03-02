@@ -14,15 +14,21 @@
 
 .sidebar a{
 
-    border: 1px solid black;
+    border: 3px solid gray;
+    border-radius: 10px;
+    margin-top: 5px;
     width: 200px;
     font-size: 25px;
     text-align: center;
-    background-color: white;
+    background-color: darkgray;
     font-size: 20px;
 min-height: 50px;
 
    cursor: pointer;
+}
+
+.sidebar a:hover{
+    transform: scale(1.1);
 }
 
 
@@ -30,32 +36,46 @@ min-height: 50px;
     display: flex;
     margin-left: 250px;
     margin-top: 10px;
-   
+
     flex-direction: row;
     align-items: center;
-   
+
     flex-wrap: wrap;
 }
-
+.itemlist p{
+    margin: 0;
+    position: center;
+}
 .itemlist img{
-    margin-top: 20px;
+
     width: 100px;
     height: 150px;
 }
 
-.itemlist div{
+.item{
    display: flex;
-    border: 1px solid gray;
-   height: 300px;
+    border: 3px solid gray;
+    border-radius: 10px;
+   height: 350px;
    width: 300px;
 margin-bottom: 30px;
 margin-left: 20px;
 align-items: center;
-    justify-content:center;
+    justify-content: space-evenly;
     flex-direction: column;
+    background-color: #bfc3b9;
 font-size: 20px;
 text-align: center;
+
 }
+.item:hover{
+    transform: scale(1.05);
+    background-color: #e4e8de;
+}
+.iteminfo{
+    height: 50px;
+}
+
 
 .pages{
     margin-left: 270px;
@@ -69,3 +89,16 @@ text-align: center;
 .pages button:active{
     background-color: black;
 }
+
+.footer{
+    display: flex;
+    justify-content: center;
+    border-top: 3px solid #ccc;
+    padding: 10px 10px 20px 10px;
+background-color: black;
+    color: aliceblue;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+

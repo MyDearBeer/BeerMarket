@@ -1,0 +1,15 @@
+D:\gachi\market\Market.Backend\Market.Application\bin\Debug\net6.0\Market.Application.deps.json
+D:\gachi\market\Market.Backend\Market.Application\bin\Debug\net6.0\Market.Application.dll
+D:\gachi\market\Market.Backend\Market.Application\bin\Debug\net6.0\Market.Application.pdb
+D:\gachi\market\Market.Backend\Market.Application\bin\Debug\net6.0\Market.Domain.dll
+D:\gachi\market\Market.Backend\Market.Application\bin\Debug\net6.0\Market.Domain.pdb
+D:\gachi\market\Market.Backend\Market.Application\obj\Debug\net6.0\Market.Application.csproj.AssemblyReference.cache
+D:\gachi\market\Market.Backend\Market.Application\obj\Debug\net6.0\Market.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\gachi\market\Market.Backend\Market.Application\obj\Debug\net6.0\Market.Application.AssemblyInfoInputs.cache
+D:\gachi\market\Market.Backend\Market.Application\obj\Debug\net6.0\Market.Application.AssemblyInfo.cs
+D:\gachi\market\Market.Backend\Market.Application\obj\Debug\net6.0\Market.Application.csproj.CoreCompileInputs.cache
+D:\gachi\market\Market.Backend\Market.Application\obj\Debug\net6.0\Market.Application.csproj.CopyComplete
+D:\gachi\market\Market.Backend\Market.Application\obj\Debug\net6.0\Market.Application.dll
+D:\gachi\market\Market.Backend\Market.Application\obj\Debug\net6.0\refint\Market.Application.dll
+D:\gachi\market\Market.Backend\Market.Application\obj\Debug\net6.0\Market.Application.pdb
+D:\gachi\market\Market.Backend\Market.Application\obj\Debug\net6.0\ref\Market.Application.dll

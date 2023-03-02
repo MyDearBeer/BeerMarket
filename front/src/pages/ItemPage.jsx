@@ -12,7 +12,7 @@ import './ItemPage.css'
 
 
 const ItemPage = () => {
-  const[item,setItems]=useState({itemInfo:[]})
+  const[item,setItems]=useState({type:{},factory:{},info:[]})
   const[type,setType]=useState({name:''})
   const[factory,setFactory]=useState({name:''})
   //console.log(item.info)
@@ -22,46 +22,54 @@ const ItemPage = () => {
   const {product}=useContext(Context)
   const{user} = useContext(Context)
   useEffect(()=>{
-    fetchItemsById(id).then(data=>setItems(data))
+    fetchItemsById(id).then(data=>{
+
+        setItems(data)
+        console.log(data)
+    })
     //fetchTypeById(item.typeId).then(data=>product.setSelectedType(data))
-    
+
 },[])
 
-useEffect(()=>{
-fetchTypeById(item.typeId).then(data=>setType(data))
-fetchFactoryById(item.factoryId).then(data=>setFactory(data))
-},[item.typeId,item.factoryId])
+
+
  //product.type.id=item.typeId
 
- //console.log(product.selectedType.name)
+ console.log(item)
 
 //const firstItem=item.info[0]
 
-console.log(type)
+
     return (
-        <div className='itempage'>
+
           <div className='upside'>
-           <div>
+
 <img src={variables.PHOTO_URL+item.img}></img>
-</div>
+
            
             <div className='stats'>
-              <div> 
+
                 {/* <h1>{item.name}</h1> */}
-                <div style={{marginTop:"50px"}}> 
-                <p>Тип товару: {type.name}</p>
-                <p>Виробник: {factory.name}</p>
-                {item.itemInfo.map(info=>
-    <p  key={info.id}>{info.title}:{info.value}</p> )}
-                <p>Ціна: {item.price} грн за 1 одиницю товару</p>
-                <button onClick={()=>user.isAuth? navigate(BASKETROUTE): navigate(REGROUTE)} style={{marginTop:"30px"}}>Додати у кошик</button>
-                </div> 
+
+                    <p>{item.name}</p>
+                <p>{item.type.name}, {item.factory.name}</p>
+                <div className='infodiv'>
+                {item.info.map(info=>
+    <h3  key={info.id}>{info.title}: {info.value} </h3> )}
                 </div>
-                
-              </div>
+                <p>Ціна: {item.price} грн за 1 одиницю товару</p>
+                <div className='itemdescription'>
+                    <p>{item.description}</p>
+                </div>
+                <div className='basketBtn'>
+                    <button onClick={()=>user.isAuth? navigate(BASKETROUTE): navigate(REGROUTE)} style={{marginTop:"30px"}}>Додати у кошик</button>
+                </div>
+                </div>
+
+
          </div>
-              <div className='itemdescription'>{item.description}</div>
-        </div>
+
+
         
       );
 }

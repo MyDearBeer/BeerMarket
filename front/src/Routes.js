@@ -8,8 +8,17 @@ import { ADMINROUTE, BASKETROUTE, ITEMROUTE, LOGINROUTE, REGROUTE, SHOPROUTE } f
 export const authRoutes=[
 
 {path:SHOPROUTE,element:<Market/>},
-{path:ADMINROUTE,element:<Admin/>},
 {path:BASKETROUTE,element:<Basket/>},
+    {path:LOGINROUTE,element:<Autorisation/>},
+    {path:ITEMROUTE+'/:id',element:<ItemPage/>},
+    {path:REGROUTE,element:<Autorisation/>},
+]
+
+export const authAdminRoutes=[
+
+    {path:SHOPROUTE,element:<Market/>},
+    {path:ADMINROUTE,element:<Admin/>},
+    {path:BASKETROUTE,element:<Basket/>},
     {path:LOGINROUTE,element:<Autorisation/>},
     {path:ITEMROUTE+'/:id',element:<ItemPage/>},
     {path:REGROUTE,element:<Autorisation/>},

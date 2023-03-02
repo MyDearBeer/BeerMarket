@@ -5,12 +5,12 @@ import { variables } from "../utils/consts";
 
 
 export const fetchTypes= async()=>{
-    const{data} = await axios.get(variables.APP_URL+'typeitem')
+    const{data} = await axios.get(variables.APP_URL+'type')
     return data
 }
 
 export const createTypes= async(type)=>{
-    const{data} = await axios.post(variables.APP_URL+'typeitem',type)
+    const{data} = await axios.post(variables.APP_URL+'type',type)
     return data
 }
 
@@ -25,7 +25,7 @@ export const createFactories= async(factory)=>{
 
 
 export const fetchItems= async(typeId,factoryId,page,limit)=>{
-    const{data} = await axios.get(variables.APP_URL+'item',{params :{
+    const{data} = await axios.get(variables.APP_URL+'product',{params :{
         typeId,factoryId,page,limit
     }
 
@@ -34,17 +34,17 @@ export const fetchItems= async(typeId,factoryId,page,limit)=>{
 }
 
 export const createItems= async(item)=>{
-    const{data} = await axios.post(variables.APP_URL+'item',item)
+    const{data} = await axios.post(variables.APP_URL+'product',item)
     return data
 }
 
 export const postImage= async(img)=>{
-    const{data} = await axios.post(variables.APP_URL+'item/SaveFile',img)
+    const{data} = await axios.post(variables.APP_URL+'product/SaveFile',img)
     return data
 }
 
 export const fetchItemsById= async(id)=>{
-    const{data} = await axios.get(variables.APP_URL+'item/'+id)
+    const{data} = await axios.get(variables.APP_URL+'product/'+id)
     return data
 }
 

@@ -12,6 +12,7 @@ const Market = () => {
           
            <ItemList/>
            <Pages/>
+
         </div>
       );
 }

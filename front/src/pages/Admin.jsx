@@ -4,6 +4,8 @@ import CreateItem from '../components/modals/CreateItem';
 import Modal from '../components/modals/Modal';
 import { createFactories, createTypes } from '../http/ItemAPI';
 import './Admin.css'
+import CreateType from "../components/modals/CreateType";
+import CreateFactory from "../components/modals/CreateFactory";
 
 
 const Admin = () => {
@@ -11,61 +13,44 @@ const Admin = () => {
   const[modalTypeVisible,setModalTypeVisible] = useState(false)
   const[modalFactoryVisible,setModalFactoryVisible] = useState(false)
   const[modalItemVisible,setModalItemVisible] = useState(false)
-  const[type,setType] = useState()
-  const[factory,setFactory] = useState()
 
-  const addType=()=>    {
-createTypes({name:type}).then(data=>setType(''))
-setModalTypeVisible(false)
-  }
-  const addFactory=()=>    {
-    createFactories({name:factory}).then(data=>setFactory(''))
-    setModalFactoryVisible(false)
-      }
-    
 
   return (
       <div className='admin'>
         <div className='postbuttons'>
          
-         <button className='postbutton' onClick={()=>setModalTypeVisible(true)}>Додати тип товару</button>  
-         <button className='postbutton' onClick={()=>setModalFactoryVisible(true)}>Додати виробника</button>  
-         <button className='postbutton' onClick={()=>setModalItemVisible(true)}>Додати товар</button> 
+         <button className='postbutton' onClick={()=> {
+             setModalTypeVisible(true)
+              document.body.style.overflowY = "hidden"
+         }}>Додати тип товару</button>
+         <button className='postbutton' onClick={()=>{
+             setModalFactoryVisible(true)
+             document.body.style.overflowY = "hidden"
+         }}>Додати виробника</button>
+         <button className='postbutton' onClick={()=>{
+             setModalItemVisible(true)
+             document.body.style.overflowY = "hidden"}}>Додати товар</button>
+            <button className='postbutton' onClick={()=> {
+                setModalTypeVisible(true)
+                document.body.style.overflowY = "hidden"
+            }}>Видалити тип товару</button>
+            <button className='postbutton' onClick={()=> {
+                setModalTypeVisible(true)
+                document.body.style.overflowY = "hidden"
+            }}>Видалити бренд товару</button>
+            <button className='postbutton' onClick={()=> {
+                setModalTypeVisible(true)
+                document.body.style.overflowY = "hidden"
+            }}>Видалити товар</button>
+
          <Modal  active={modalTypeVisible} setActive={setModalTypeVisible}>
-          <form>
-            <h1>Введіть назву категорії</h1>
-            <input type="text" value={type} onChange={e=>setType(e.target.value)}/>
-          {type?
-           <button className='addbtn' onClick={ (e)=>{
-          e.preventDefault()
-          addType()}}>Add</button>
-        :   <button className='addbtn' disabled>Add</button>}
-           
-          </form>
+          <CreateType setActive = {setModalTypeVisible}/>
             </Modal>
             <Modal active={modalFactoryVisible} setActive={setModalFactoryVisible}>
-          <form>
-            <h1>Введіть назву виробника</h1>
-            <input type="text" value={factory} onChange={e=>setFactory(e.target.value)}/>
-            <h1>Введіть адресу виробника</h1>
-            <input type="text"/>
-            <button className='addbtn' onClick={(e)=>{
-             e.preventDefault()
-             addFactory()}}>Add</button>
-          </form>
+
+          <CreateFactory setActive={setModalFactoryVisible}/>
             </Modal>
-{/* 
-            <Modal active={modalItemVisible} setActive={setModalItemVisible}>
-          <form>
-            <h1>Введіть назву виробу</h1>
-            <input type="text"/>
-            <h1>Введіть ціну за 1 од.</h1>
-            <input type="text"/>
-            <h1>Введіть ціну за 1 од.</h1>
-            <input type="text"/>
-            <button className='addbtn' onClick={()=>setModalItemVisible(false)}>Add</button>
-          </form>
-            </Modal> */}
+
 <Modal active={modalItemVisible} setActive={setModalItemVisible}>
             <CreateItem setActive={setModalItemVisible}/>
             </Modal>
