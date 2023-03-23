@@ -11,9 +11,9 @@ const Modal = ({active,setActive,children}) => {
             document.body.style.overflowY = "scroll"}}>
 
 <div className='myModalContent'onClick={e=>e.stopPropagation()} >
-    <div>
+
 {children}
-</div>
+
 </div>
         </div>
      );

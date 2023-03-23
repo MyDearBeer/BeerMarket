@@ -18,8 +18,9 @@ const SideBar = observer( ()=> {
     },[])
     return (
         <div className='bar'>
-        <div className='sidebar'>
             <h2>Типи товарів</h2>
+        <div className='sidebar'>
+
 {product.type.map(type=>
     <a style={type.id===product.selectedType.id
         ? {backgroundColor:"white"}: {backgroundColor:""}}
@@ -27,8 +28,8 @@ const SideBar = observer( ()=> {
            ? product.setSelectedType({}): product.setSelectedType(type)}}
        key={type.id}>{type.name}</a> )}
           </div>
-            <div style={{marginTop:"20px"}} className='sidebar'>
-            <h2>Фірми</h2>
+            <h2 className="factoryH">Фірми</h2>
+            <div className='sidebar'>
 {product.factory.map(factory=>
     <a style={factory.id===product.selectedFactory.id
         ? {backgroundColor:"white"}: {backgroundColor:""}}

@@ -10,4 +10,15 @@ button{
 button:hover{
     background-color: black;
 }
+.block{
 
+    min-height: calc(100vh - 100px - 100px);
+    height: auto;
+}
+
+@media(max-width: 425px){
+    button{
+        height: 40px;
+        font-size: 14px;
+    }
+}

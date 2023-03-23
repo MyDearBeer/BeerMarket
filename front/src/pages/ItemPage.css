@@ -2,7 +2,7 @@
 
 .upside{
     display: flex;
-    margin-left: 30px;
+    margin-left: 70px;
     margin-top: 50px;
    flex-direction: row;
 }
@@ -10,8 +10,7 @@
 .upside img{
     width: 40%;
     height: 700px;
-    border: 1px solid black;
-flex:0 0 auto;
+
 }
 
 .stats{
@@ -23,14 +22,16 @@ justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-left: 10px;
+    text-align: center;
 }
 
 .infodiv{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 70%;
     margin-bottom: 60px;
     margin-top: 60px;
+    text-align: center;
 }
 
 .stats p,h{
@@ -42,16 +43,43 @@ justify-content: center;
 }
 .itemdescription{
 
-    margin-top: 10px;
+    margin: 10px;
     font-size: 20px;
+    text-align: justify;
 }
-@media (max-width: 1025px) {
+@media (max-width: 1226px) {
     .upside{
 flex-direction: column;
-
+margin-left: 0px;
         align-items: center;
     }
+
+
     .upside img{
         height: 30%;
+    }
+    .stats{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .stats p,h{
+        font-size: 25px;
+    }
+    .itemdescription{
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 750px) {
+    .infodiv{
+        flex-direction: column;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    .stats p,h{
+        font-size: 20px;
+    }
+    .itemdescription{
+        font-size: 12px;
     }
 }

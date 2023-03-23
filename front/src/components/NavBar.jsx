@@ -5,9 +5,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Context } from '..';
 import { Button, NavLink } from 'react-bootstrap';
 import {observer} from "mobx-react-lite"
-import { ADMINROUTE, BASKETROUTE, REGROUTE, SHOPROUTE } from '../utils/consts';
+import {ADMINROUTE, BASKETROUTE, LOGINROUTE, REGROUTE, SHOPROUTE} from '../utils/consts';
 import './Navbar.css'
-import { useNavigate } from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 
 
 const NavBar =observer (() => {
@@ -22,7 +22,8 @@ const NavBar =observer (() => {
              <div className="admin">
            <button onClick={()=>{
             navigate(REGROUTE)
-            user.setisAuth(false)}} >Вийти</button>
+            user.setisAuth(false)
+           localStorage.clear()}} >Вийти</button>
                  {user.User.role=='Admin' && <button onClick={()=>{navigate(ADMINROUTE)
           console.log(user)}} >Admin</button>}
            <button onClick={()=>{navigate(BASKETROUTE)
@@ -30,9 +31,12 @@ const NavBar =observer (() => {
            </div >
         : 
         <div >
-        <button  onClick={()=>
-          
-          navigate(REGROUTE)}>Авторизація</button>
+        <button  onClick={(e)=>{
+
+          navigate(REGROUTE)
+           }}>Авторизація
+
+        </button>
         </div>}
 </div>
       </div>

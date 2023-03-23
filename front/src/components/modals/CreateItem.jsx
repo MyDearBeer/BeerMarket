@@ -2,8 +2,8 @@ import React, {createRef, useEffect} from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { Context } from '../..';
-import { createItems, postImage } from '../../http/ItemAPI';
-import Warning from "../Warning";
+import {createItems, fetchFactories, fetchItems, fetchTypes, postImage} from '../../http/ItemAPI';
+import Warning from "../tools/Warning";
 
 
 const CreateItem = ({modalItemVisible,setActive}) => {
@@ -19,12 +19,22 @@ const CreateItem = ({modalItemVisible,setActive}) => {
     const[desc,setDesc] = useState()
     const[errDiv,setErrDivVisible] = useState(false)
 
-
+    useEffect(() => {
+        fetchTypes().then(data => {
+            product.setType(data.types)
+            //product.setTotalCount(data.length)
+        })
+        fetchFactories().then(data => {
+            product.setFactory(data.factories)
+            //product.setTotalCount(data.length)
+        })
+    }, [product.type,product.factory])
 
 
   const addItem=(e)=>    {
     console.log(product.selectedFactory)
 
+      console.log(info)
 createItems({name:name,
   rating:rate,
   price:price,
@@ -32,15 +42,15 @@ createItems({name:name,
   factoryId:factoryID,
   typeId:typeID,
   description:desc,
-  info:info})
+  info:info.filter(i => i.title !== '' && i.value !=='')})
 .then(data=>{setActive(false)
     document.body.style.overflowY = "scroll"})
 
 if(img){
 const formData = new FormData()
 formData.append("file",img,img.name)
-postImage(formData).then(data=>setActive(false)) 
-}
+postImage(formData).then(data=>setActive(false))
+ }
   }
 
     const addInfo=()=>{
@@ -85,9 +95,9 @@ setImgName(e.target.files[0].name)
               )}
                 </select>
                 <h1>Введіть рейтинг</h1>
-            <input type="number" step="0.1" min="0" max="5" value={rate}  onChange={(e)=>setRate(Number(e.target.value))}/>
+            <input type="number" step="0.1" min="0" max="5"  onChange={(e)=>setRate(Number(e.target.value))}/>
             <h1>Введіть ціну за 1 од.</h1>
-            <input type="number" min="0" value={price} onChange={(e)=>setPrice(Number(e.target.value))}/>
+            <input type="number" min="0"  onChange={(e)=>setPrice(Number(e.target.value))}/>
             <h1>Завантажте картинку</h1>
             <input className='fileInput' type="file" onChange={selectFile}/>
             <h1>Опис товару</h1>
@@ -97,10 +107,12 @@ setImgName(e.target.files[0].name)
            e.preventDefault() 
            console.log(info.number)}}>Додати характеристику</button><br/>
             {info.map(info=>
-            <div key={info.number}>
-                  <input style={{width:"calc(45vw - 20px)"}} type="text" placeholder='Характеристика' value={info.title} onChange={(e)=>changeInfo('title',e.target.value,info.number)}/>
-                  <input style={{width:"calc(75vw - 45vw - 70px)",marginLeft:"20px"}} type="text" placeholder='Значення' value={info.description} onChange={(e)=>changeInfo('value',e.target.value,info.number)}/>
-                  <button style={{marginBottom:"20px"}} className='closeBtn' onClick={(e)=>{
+            <div key={info.number} className="info">
+                <div className="infoDivInp">
+                  <input className="titleInput"  type="text" placeholder='Характеристика' value={info.title} onChange={(e)=>changeInfo('title',e.target.value,info.number)}/>
+                  <input className="valueInput"  type="text" placeholder='Значення' value={info.description} onChange={(e)=>changeInfo('value',e.target.value,info.number)}/>
+                </div>
+                    <button style={{marginBottom:"20px"}} className='deleteInfoBtn' onClick={(e)=>{
                     e.preventDefault()
                     removeInfo(info.number)}}>Видалити</button>
             </div>)
@@ -119,9 +131,10 @@ setImgName(e.target.files[0].name)
               // product.item.map(i=>{
               //   if(name==i.name){
               //   setErrDivVisible(true) 
-              //   console.log("dfuck")
+
               //   }
               // console.log(i.name)
+
               addItem()
               setErrDivVisible(false) 
                 
@@ -131,7 +144,8 @@ setImgName(e.target.files[0].name)
               
               e.preventDefault()
               
-              setErrDivVisible(true)                
+              setErrDivVisible(true)
+
             }}>Додати</button>
           
           </form>

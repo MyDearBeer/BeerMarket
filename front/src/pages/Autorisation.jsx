@@ -7,7 +7,7 @@ import {useLocation, useNavigate, useNavigation } from 'react-router-dom';
 import './Auth.css'
 import { Context } from '..';
 import {login, registration} from "../http/UserAPI";
-import Warning from "../components/Warning";
+import Warning from "../components/tools/Warning";
 import {observer} from "mobx-react-lite";
 
 const Autorisation = observer(() => {
@@ -43,7 +43,7 @@ setErrDivAuth(true)
 
     return (
         <div>
-            <div className="authbox" style={{height:window.innerHeight-100}}>
+            <div className="authbox">
                 <div className='auth'>
                  <h2 style={{marginTop:"10px"}}>{isLogin ? "Авторизація" :"Реєстрація"}</h2>
                 <form className="forma">
@@ -72,7 +72,7 @@ setErrDivAuth(true)
                :<a href={LOGINROUTE}>Авторизація</a>}
                 </div>
                     {errDivAuth &&
-                        <Warning>{isLogin? "Невірний логін чи пароль":"Даний e-mail зайнятий"}</Warning>}
+                        <div className="errJoin">{isLogin? "Невірний логін чи пароль":"Даний e-mail зайнятий"}</div>}
                 </form>
                 </div>
             </div>

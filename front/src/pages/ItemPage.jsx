@@ -4,14 +4,14 @@ import { useState } from 'react'
 import { useContext } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Context } from '..'
-import { fetchFactoryById, fetchItemsById, fetchTypeById } from '../http/ItemAPI'
+import {fetchFactoryById, fetchItemsById, fetchTypeById, postBasketItem} from '../http/ItemAPI'
 import { BASKETROUTE, REGROUTE, variables } from '../utils/consts'
 
 import './ItemPage.css'
 
 
 
-const ItemPage = () => {
+const ItemPage = observer(() => {
   const[item,setItems]=useState({type:{},factory:{},info:[]})
   const[type,setType]=useState({name:''})
   const[factory,setFactory]=useState({name:''})
@@ -31,7 +31,17 @@ const ItemPage = () => {
 
 },[])
 
+const addToBasket =(e)=>{
+      postBasketItem({
+          userId: user.Id,
+          productId: item.id
+      }).finally(()=>{
+          user.isAuth? navigate(BASKETROUTE): navigate(REGROUTE)
+      })
 
+
+
+}
 
  //product.type.id=item.typeId
 
@@ -53,16 +63,21 @@ const ItemPage = () => {
 
                     <p>{item.name}</p>
                 <p>{item.type.name}, {item.factory.name}</p>
-                <div className='infodiv'>
-                {item.info.map(info=>
+                {item.info.length!=0&&<div className='infodiv'>
+                    {item.info.map(info=>
     <h3  key={info.id}>{info.title}: {info.value} </h3> )}
-                </div>
+                </div>}
                 <p>Ціна: {item.price} грн за 1 одиницю товару</p>
                 <div className='itemdescription'>
                     <p>{item.description}</p>
                 </div>
                 <div className='basketBtn'>
-                    <button onClick={()=>user.isAuth? navigate(BASKETROUTE): navigate(REGROUTE)} style={{marginTop:"30px"}}>Додати у кошик</button>
+                    <button onClick={(e)=>{
+
+                        addToBasket()
+
+
+                    }} style={{marginTop:"30px"}}>Додати у кошик</button>
                 </div>
                 </div>
 
@@ -72,6 +87,6 @@ const ItemPage = () => {
 
         
       );
-}
+})
  
 export default ItemPage;

@@ -37,20 +37,29 @@ input,.optionsList,.description{
     font-size: 50px;
 }
 
+.titleInput{
+    width:calc(45vw - 20px);
+    min-width: 250px;;
+}
+
+.valueInput{
+    width:calc(75vw - 45vw - 80px);
+    margin-left:20px;
+    min-width: 200px;
+}
+
 .myModalContent{
 overflow-y: auto;
-    scrollbar-width: auto;
-    scrollbar-track-color: aqua;
     padding: 20px;
     background: gray;
     border:3px solid black;
     border-radius: 16px;
-    min-width: 250px;
+    min-width: 550px;
     width: 75vw;
 height: auto;
     transform: scale(0.5);
     transition: 0.4s all;
-margin-left: 20px;
+
 }
 .myModalContent::-webkit-scrollbar {
     width: 22px;               /* ширина всей полосы прокрутки */
@@ -89,15 +98,24 @@ margin-left: 20px;
 
 }
 
-.notFullInfo{
-    width: 100%;
-    font-size:35px;
-    border: 4px solid red;
-    background-color: rgb(122, 20, 20);
-    color: blanchedalmond;
-    padding-left: 10px;
-    margin-top: 20px;
-}
-.addbtn{
+@media(max-width: 774px) {
 
+    .myModalContent{
+        width: 100vw;
+
+    }
+
+    .description{
+        width: 95%;
+        font-size: larger;
+        height: 300px;
+        margin-left: 0px;
+
+    }
+}
+
+@media(max-height: 526px) {
+    .myModalContent{
+        height: 150%;
+    }
 }

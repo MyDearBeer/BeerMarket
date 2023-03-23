@@ -19,3 +19,13 @@ height: 74px;
 .navbtns button:hover{
     background-color: black;
 }
+
+@media(max-width: 376px){
+  .navbar h1{
+      font-size: 20px;
+  }
+    .navbtns button{
+        margin-right: 5px;
+
+    }
+}

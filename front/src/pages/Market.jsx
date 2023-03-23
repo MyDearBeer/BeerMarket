@@ -7,12 +7,12 @@ import './Market.css'
 
 const Market = () => {
     return (
-        <div>
+        <div className="market">
            <SideBar/>
-          
+          <div>
            <ItemList/>
            <Pages/>
-
+          </div>
         </div>
       );
 }

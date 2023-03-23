@@ -7,9 +7,13 @@ margin-left: auto;
 margin-right: auto;
 
 }
-.postbutton{
+.postbutton, .deletebutton{
     width: 100%;
 margin-top: 10px;
+}
+.deletebutton{
+    background-color: red;
+    border-width: 3px;
 }
 
 .admin{
@@ -18,19 +22,16 @@ margin-top: 10px;
 
 }
 
-.addbtn,.closeBtn{
+.addbtn, .deleteInfoBtn{
     margin-top: 15px;
 
     height: 70px;
     font-size: 35px;
 }
 
-.closeBtn{
+.deleteInfoBtn{
     background-color: red;
     color: black;
 }
 
 
-.closeBtn:hover{
-    background-color: white;
-}

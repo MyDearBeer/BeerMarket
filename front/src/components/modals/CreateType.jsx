@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import {createTypes} from "../../http/ItemAPI";
-import Warning from "../Warning";
+import Warning from "../tools/Warning";
 
 const CreateType = ({setActive}) => {
     const[type,setType] = useState()

@@ -13,11 +13,16 @@ this._factory=[
         
         ]
 
+        this._basketItem=[
+
+        ]
+
         this._selectedType={}
         this._selectedFactory={}
         this._page=1
         this._totalCount=0
-        this._limit=5
+        this._limit=10
+        this._sumPrice = 0
 
 makeAutoObservable(this)
     }
@@ -39,6 +44,17 @@ makeAutoObservable(this)
 
    get selectedFactory(){
        return this._selectedFactory
+    }
+
+    get sumPrice(){
+        return this._sumPrice
+    }
+
+
+
+
+    setSumPrice(sumPrice){
+        this._sumPrice=sumPrice
     }
 
 
@@ -64,6 +80,9 @@ setLimit(limit){
     this._limit=limit
 }
 
+setBasketItem(basketItem){
+        this._basketItem=basketItem
+}
 
 get type(){
     return this._type
@@ -86,4 +105,9 @@ get totalCount(){
 get limit(){
     return this._limit
 }
+
+get basketItem(){
+        return this._basketItem
+}
+
 }

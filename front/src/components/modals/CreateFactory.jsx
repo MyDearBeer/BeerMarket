@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import {createFactories} from "../../http/ItemAPI";
-import Warning from "../Warning";
+import Warning from "../tools/Warning";
 
 
 const CreateFactory = ({setActive}) => {
     const[factoryName,setFactoryName] = useState()
-    const[factoryAddress,setFactoryAddress] = useState()
+    const[factoryAddress,setFactoryAddress] = useState("Адреса не вказана")
     const[errDivFactory,setErrDivVisibleFactory] = useState(false)
 
 
@@ -28,13 +28,13 @@ const CreateFactory = ({setActive}) => {
                 <input type="text" value={factoryName} style={factoryName==""||factoryName==null? {border:"5px solid red"}: {borderColor:"blue"}}
                        onChange={e=>setFactoryName(e.target.value)}/>
                 <h1>Введіть адресу виробника<span style={{color:"red"}}>*</span></h1>
-                <input type="text" value={factoryAddress} style={factoryAddress==""||factoryAddress==null? {border:"5px solid red"}: {borderColor:"blue"}}
+                <input type="text" value={factoryAddress} style={ {borderColor:"blue"}}
                        onChange={e=>setFactoryAddress(e.target.value)}/>
                 {errDivFactory ?
                     <Warning>Треба заповнити усі обов'язкові дані</Warning>
                     : <Warning>Для додання предмету заповніть обов'язкові поля,які позначені *</Warning>}
                 <button className='addbtn' onClick={(e)=>{
-                    if(factoryName&&factoryAddress){
+                    if(factoryName){
                         e.preventDefault()
                         addFactory()
                         setErrDivVisibleFactory(false)}

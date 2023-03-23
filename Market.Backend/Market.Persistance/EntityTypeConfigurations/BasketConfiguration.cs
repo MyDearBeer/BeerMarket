@@ -14,7 +14,7 @@ namespace Market.Persistance.EntityTypeConfigurations
         public void Configure(EntityTypeBuilder<BasketProduct> builder)
         {
             builder.HasKey(bp => bp.Id);
-            builder.HasIndex(bp => bp.Id).IsUnique();  
+            builder.HasIndex(bp => bp.Id).IsUnique();
         }
     }
 }
